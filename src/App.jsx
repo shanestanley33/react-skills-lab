@@ -2,6 +2,15 @@ import './App.css'
 import SkillList from './SkillList'
 import NewSkillForm from './NewSkillForm'
 
+const initialskills = [
+  'Earth',
+  'Fire',
+  'Wind',
+  'Water',
+  'Heart'
+]
+
+
 //import
 function App() {
 
@@ -11,6 +20,7 @@ function App() {
      <SkillList />
      <hr></hr>
      <NewSkillForm />
+     <hr />
     </>
   )
 }
