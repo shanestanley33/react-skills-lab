@@ -1,19 +1,27 @@
+import { useState } from "react";
 
-export default function NewSkillForm() {
+export default function NewSkillForm( {addSkill} ) {
+  const [newSkill, setNewSkill] = useState("")
+
+  function handleAddSkill(event) {
+    event.preventDefault()
+    addSkill(newSkill);
+    setNewSkill("")
+  }
+
   return (
-    <form className="NewSkillForm">
-       <label>Skill</label> 
-       <input />
-       <label>User</label>
-       <select>
-       <option>Kwame</option>
-       <option>Wheeler</option>
-       <option>Linka</option>
-       <option>Gi</option>
-       <option>Ma-Ti</option>
-        
-        </select>
-       <button>ADD SKILL</button>
-    </form>
+    <>
+      <h2>New Skill</h2>
+      <form onSubmit={handleAddSkill}>
+          <input
+              value={newSkill}
+              onChange={(event) => setNewSkill(event.target.value)}
+              placeholder="New Skill"
+              required
+              pattern=".{3,}"
+          />
+          <button type="submit">ADD NEW SKILL</button>
+      </form>
+    </>
   )
 }
